@@ -10,10 +10,18 @@ const newArray = (arr, callback) => {
 }
 
 
-
+const filteredArray = (arr, callback) => {
+    let x = []
+    for (let y of arr) {
+        if (callback(y)) x = [...x, y];
+    }
+    return x;
+}
+   
 
 
 
 module.exports = {
-    newArray
+    newArray,
+    filteredArray,
 }

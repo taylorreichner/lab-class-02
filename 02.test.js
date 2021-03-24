@@ -1,4 +1,4 @@
-const { newArray, filteredArray } = require('./02');
+const { newArray, filteredArray, findStuff, reduceArray } = require('./02');
 
 
 
@@ -28,4 +28,58 @@ describe('filteredArray function', () => {
        expect(filteredArray(array, callback)).toEqual([2])
 
 	});
+});
+
+describe('findStuff', () => {
+	it('returns first item that returns true', () => {
+		const array = [
+            1,
+            2,
+            3,
+       ];
+       const callback = n => n === 2;
+
+       expect(findStuff(array, callback)).toEqual(2)
+
+	});
+
+    it('returns -1 if no items return true', () => {
+		const array = [
+            1,
+            3,
+       ];
+       const callback = n => n === 2;
+
+       expect(findStuff(array, callback)).toEqual(-1)
+
+	});
+
+    describe('reduceArray', () => {
+        it('returns the sum of initial value and items in array', () => {
+            const array = [
+                1,
+                2,
+                3,
+           ];
+           const callback = (a, b) => a + b;
+           const initialValue = 10;
+    
+           expect(reduceArray(array, callback, initialValue)).toEqual(16)
+    
+        });
+        it('returns the sum of the array with the first item as the acumm', () => {
+            const array = [
+                1,
+                2,
+                3,
+           ];
+           const callback = (a, b) => a + b;
+           const initialValue = 10;
+    
+           expect(reduceArray(array, callback, initialValue)).toEqual(16)
+    
+        });
+
+    });
+    
 });

@@ -1,4 +1,4 @@
-const { newArray, filteredArray, findStuff, reduceArray } = require('./02');
+const { newArray, filteredArray, findStuff, reduceArray, every } = require('./02');
 
 
 
@@ -79,7 +79,32 @@ describe('findStuff', () => {
            expect(reduceArray(array, callback, initialValue)).toEqual(16)
     
         });
+    });
+
+        describe('every', () => {
+            it('returns true if callbacks are true', () => {
+                const array = [
+                    1,
+                    2,
+                    3,
+               ];
+               const callback = (a, b) => a + b;
+              
+        
+               expect(every(array, callback)).toEqual(true)
+        
+            });
+            it('returns false if callbacks are not true', () => {
+                const array = [
+                    3,
+               ];
+               const callback = x => x % 2 === 0;
+               
+        
+               expect(every(array, callback)).toEqual(false)
+        
+            });
 
     });
     
-});
+})

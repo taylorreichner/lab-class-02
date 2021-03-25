@@ -38,14 +38,23 @@ const reduceArray = (arr, callback, initialValue) => {
         }
     }
        
-        
-    
-            
-            return x; 
+         return x; 
+}
+
+const every = (arr, callback) => {
+    for (let x of arr) {
+        if (callback(arr[x], x)) {
+            return true;
+        } else if (!callback(arr[x], x)) {
+            return false;
+        }
+    }
+
 }
 module.exports = {
     newArray,
     filteredArray,
     reduceArray,
     findStuff, 
+    every,
 }
